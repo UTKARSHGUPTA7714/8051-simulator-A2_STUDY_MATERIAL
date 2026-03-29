@@ -1,0 +1,18 @@
+{% if assembler %}
+<div class="card assembler">
+
+    <h3 style="margin-bottom: 10px;">⚙️ Assembler Output</h3>
+
+    <table class="custom-table">
+        <tbody>
+            {% for key, value in assembler.items() %}
+            <tr>
+                <td class="addr">{{ key }}</td>
+                <td class="val">{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endif %}

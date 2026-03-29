@@ -1,0 +1,72 @@
+{% if registers or flags or general_purpose_registers %}
+<div class="card">
+
+    <h3 style="margin-bottom:10px;">📟 Registers</h3>
+
+    <!-- MAIN REGISTERS -->
+    {% if registers %}
+    <table class="reg-table">
+        <tbody>
+            {% for key, value in registers.items() %}
+            <tr>
+                <td class="reg-name">{{ key }}</td>
+                <td class="reg-val">{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <!-- FLAGS -->
+    {% if flags %}
+    <h4 style="margin-top:10px;">⚑ Flags</h4>
+    <table class="reg-table">
+        <tbody>
+            {% for key, value in flags.items() %}
+            <tr>
+                <td class="reg-name">{{ key }}</td>
+                <td>
+                    <input class="flag-input" type="checkbox" id="{{key}}" {% if value %}checked{% endif %}>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <!-- REGISTER BANKS -->
+    {% if general_purpose_registers %}
+    <h4 style="margin-top:10px;">🧩 Register Banks</h4>
+
+    <table class="bank-table">
+        <thead>
+            <tr>
+                <th></th>
+                {% for x in ["00", "01", "10", "11"] %}
+                <th>{{ x }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for kgpr, vgpr in zip(
+                general_purpose_registers["00"].keys(),
+                zip(
+                    general_purpose_registers["00"].values(),
+                    general_purpose_registers["01"].values(),
+                    general_purpose_registers["10"].values(),
+                    general_purpose_registers["11"].values()
+                )
+            ) %}
+            <tr>
+                <th class="reg-name">{{ kgpr }}</th>
+                {% for val in vgpr %}
+                <td class="reg-val">{{ (val|string)[2:] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</div>
+{% endif %}

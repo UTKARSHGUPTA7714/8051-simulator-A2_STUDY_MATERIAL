@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="8051 simulator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+
+    <!-- 🔥 HEADER -->
+    <div class="header">
+
+        <!-- LEFT SIDE -->
+        <div style="display:flex; align-items:center; gap:10px;">
+            <h2>⚡ 8051 Simulator</h2>
+            <span class="brand-link">🚀 A2 Study Material</span>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div style="display:flex; align-items:center; gap:10px;">
+            <button class="theme-toggle" onclick="toggleTheme()">🌗</button>
+            <a href="/">Home</a>
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    <!-- JS -->
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

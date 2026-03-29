@@ -1,0 +1,55 @@
+<div class="card">
+
+    <h3 style="margin-bottom:10px;">🧠 Memory</h3>
+
+    <!-- RAM -->
+    <div class="memory-section">
+        <h4>RAM</h4>
+        <table class="memory-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    {% for x in ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"] %}
+                        <th>{{ x }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for ramval in ram %}
+                <tr>
+                    <th class="addr">{{ ramval[0][0][:-1] }}</th>
+                    {% for key, value in ramval %}
+                        <td class="byte">{{ (value|string)[2:] }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ROM -->
+    <div class="memory-section">
+        <h4>ROM</h4>
+        <table class="memory-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    {% for x in ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"] %}
+                        <th>{{ x }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for romval in rom %}
+                <tr>
+                    <th class="addr">{{ romval[0][0][:-1] }}</th>
+                    {% for key, value in romval %}
+                        <td class="byte">{{ (value|string)[2:] }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>

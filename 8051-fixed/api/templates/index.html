@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}8051 Simulator {% endblock %}
+
+{% block head %}
+<!-- No Bootstrap -->
+{% endblock %}
+
+{% block body %}
+
+<div class="main">
+
+    <!-- 🔹 LEFT PANEL -->
+    <div class="left-panel">
+
+        <div class="registers-flags card" id="registers-flags">
+            {% include "render_registers_flags.html" %}
+        </div>
+
+    </div>
+
+    <!-- 🔹 CENTER PANEL -->
+    <div class="center-panel">
+
+        <!-- BUTTONS -->
+        <div class="controls-container card">
+            <div class="button-head">
+                <button id="assemble">Assemble</button>
+                <button id="run">Run</button>
+                <button id="step">Step</button>
+                <button id="reset">Reset</button>
+            </div>
+
+            <!-- CODE EDITOR -->
+            <div class="code-container">
+                <textarea id="track" readonly></textarea>
+
+                <textarea 
+                    class="code-box" 
+                    id="code"
+                    placeholder="Write your 8051 code here..."
+                ></textarea>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 🔹 RIGHT PANEL -->
+    <div class="right-panel">
+
+        <div class="memory-container card" id="memory-container">
+            {% include "render_memory.html" %}
+        </div>
+
+        <div class="assembler-container card" id="assembler-container">
+            {% include "render_assembler.html" %}
+        </div>
+
+        <!-- MEMORY EDIT -->
+        <div class="memory-edit-container card">
+            <input 
+                class="memory-edit" 
+                placeholder="Edit (e.g. 0800H=12H)" 
+                id="memory_edit_input"
+            >
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
