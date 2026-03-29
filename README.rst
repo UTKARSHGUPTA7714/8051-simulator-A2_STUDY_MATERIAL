@@ -33,7 +33,7 @@
 ## 🚀 How to Run Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/8051-simulator.git
+git clone https://github.com/UTKARSHGUPTA7714/8051-simulator-A2_STUDY_MATERIAL.git
 cd 8051-simulator
 pip install -r requirements.txt
 python wsgi.py
